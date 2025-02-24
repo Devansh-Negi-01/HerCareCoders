@@ -67,28 +67,42 @@ module.exports.editCourse = async (req, res) => {
         course.duration = duration ;
 
         await course.save();
-        res.status(200).json({ message: 'Course updated successfully', course });
+        res.status(200).json({ msg: 'Course updated successfully', course });
     } catch (err) {
         res.status(500).json({ error: 'Error in editing course', err });
     }
 };
+module.exports.allCourses = async (req,res)=>{
+    try {
+        const courses = await Course.find();
+        // if (!courses.length) {
+        //     return res.status(404).json({ msg: 'No courses found' });
+        // }
+        res.status(200).json({ courses });
+    } catch (err) {
+        res.status(500).json({ error: 'Error in fetching courses', err });
+    }
+}
 
 module.exports.courseView = async (req, res) => {
     try {
       const { courseId } = req.params;
     //   console.log(courseId);
-  
-      if (!courseId) {
-        return res.status(400).json({ success: false, message: "Course ID is required" });
-      }
+  const {Authorization} = req.body;
+      
   
       const course = await Course.findById(courseId)
-        .populate("owner", "name email")
-        .populate("review.owner", "name email")
-        .populate("buyers", "name email");
-
+        .populate("owner", "username email")
+        .populate("review.owner", "username email")
+        .populate("buyers", "username email");
+        if (!courseId) {
+            return res.status(400).json({ success: false, error: "Course ID is required" });
+          }
+          if(!Authorization && course.price > 0) {
+            return res.status(403).json({ success: false, error: "You need to be logged in to view this course" });
+          }
       if (!course) {
-        return res.status(404).json({ success: false, message: "Course not found" });
+        return res.status(404).json({ success: false, error: "Course not found" });
       }
   
       res.status(200).json({ success: true, course });

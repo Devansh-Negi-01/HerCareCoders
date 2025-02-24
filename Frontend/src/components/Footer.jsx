@@ -22,7 +22,7 @@ const Footer = () => {
   }, [dispatch]);
 
   return (
-    <footer className="bg-[#7D84B2] text-[#F9F9ED] py-8 px-10 md:py-12 md:px-16 mt-12">
+    <footer className="bg-[#7D84B2] text-[#F9F9ED] py-8 px-10 md:py-12 md:px-16">
         <div className="flex flex-wrap justify-between items-start gap-6 md:gap-16">
           <div className="flex flex-col space-y-4 md:space-y-6 md:pr-16">
             <h2 className="text-2xl font-bold">NexLearn</h2>

@@ -78,6 +78,7 @@ const Header = () => {
             <Link to="/" className="hover:text-[#DBF4A7]">Home</Link>
             <Link to="/about" className="hover:text-[#DBF4A7]">About Us</Link>
             <Link to="/dashboard" className="hover:text-[#DBF4A7]">Dashboard</Link>
+            <Link to="/allCourses" className="hover:text-[#DBF4A7]">All Courses</Link>
             <div
               className="bg-[#8E9DCC] hover:bg-[#D9DBF1] text-[#7D84B2] px-4 py-2 rounded cursor-pointer flex items-center gap-4"
             >

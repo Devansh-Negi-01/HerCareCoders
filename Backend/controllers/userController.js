@@ -129,3 +129,23 @@ module.exports.logout = (req, res) => {
     res.clearCookie('image');
     res.json({ message: 'Logged out successfully' });
 }
+module.exports.toggleLike = async(req,res)=>{
+    try{
+        const { courseId } = req.body;
+        const userId = req.userId;
+        const user = await User.findById(userId);
+        if(!user){
+            return res.status(404).json({ error: "user not found" });
+        }
+        if (user.likedCourses.includes(courseId)) {
+            user.likedCourses = user.likedCourses.filter(id => id.toString() !== courseId);
+          } else {
+            user.likedCourses.push(courseId);
+          }
+        await user.save();
+        res.json({ success: true, likedCourses: user.likedCourses });
+    }catch(e){
+        console.log("error in toggling like ",e);
+        res.status(500).json({ error: "Error in toggling like", e });
+    }
+}

@@ -32,7 +32,7 @@ app.use('/admin',adminRoutes);
 app.use('/user',userRoutes);
 app.use('/auth',authRoutes);
 app.use('/payment',middleware.check, afterpaymentRoute);
-app.use('/course',middleware.check,courseRoute);
+app.use('/course',courseRoute);
 
 app.listen(PORT,()=>{ 
     console.log(`Server running on port ${PORT}`);

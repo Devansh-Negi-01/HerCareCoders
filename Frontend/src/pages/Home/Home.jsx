@@ -39,7 +39,7 @@ const Home = () => {
         <p className="text-gray-700 max-w-2xl mx-auto mt-4">
           It’s never too late to learn something new. Unlock your potential at any age – all you need is the spark of motivation to begin. Embrace the journey of discovery and growth!
         </p>
-        <button className="mt-6 px-6 py-3 bg-[#7D84B2] text-white rounded hover:bg-[#8E9DCC]">Start Now</button>
+        <button onClick={()=>navigate('/allCourses')} className="cursor-pointer mt-6 px-6 py-3 bg-[#7D84B2] text-white rounded hover:bg-[#8E9DCC]">Start Now</button>
       </section>
 
       <section className="w-full flex justify-center">
@@ -52,34 +52,29 @@ const Home = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {[
         {
-          title: "Technology and Data Science",
-          desc: "Courses on programming, web development, software engineering, data analysis, machine learning, artificial intelligence, and big data.",
-          link: "/courses/technology"
+          "title": "Programming",
+          "desc": "Courses on software development, web technologies, data structures, and algorithms.",
+          "link": "/courses/programming"
         },
         {
-          title: "Business and Entrepreneurship",
-          desc: "Courses on business management, finance, marketing, and startup development.",
-          link: "/courses/business"
+          "title": "Literature",
+          "desc": "Courses on classic and modern literature, creative writing, poetry, and storytelling.",
+          "link": "/courses/literature"
         },
         {
-          title: "Digital Marketing",
-          desc: "Courses on SEO, social media marketing, content marketing, and email marketing.",
-          link: "/courses/marketing"
+          "title": "Artificial Intelligence",
+          "desc": "Courses on machine learning, deep learning, neural networks, and AI applications.",
+          "link": "/courses/ai"
         },
         {
-          title: "Personal Development and Soft Skills",
-          desc: "Courses on leadership, communication, time management, and emotional intelligence.",
-          link: "/courses/personal-development"
+          "title": "Business",
+          "desc": "Courses on entrepreneurship, management, finance, marketing, and business strategy.",
+          "link": "/courses/business"
         },
         {
-          title: "Health and Wellness",
-          desc: "Courses on fitness, nutrition, mental health, and mindfulness.",
-          link: "/courses/health"
-        },
-        {
-          title: "Creative Arts and Design",
-          desc: "Courses on graphic design, photography, music, and writing.",
-          link: "/courses/design"
+          "title": "Architecture",
+          "desc": "Courses on building design, urban planning, interior design, and sustainable architecture.",
+          "link": "/courses/architecture"
         }
       ].map((theme, index) => (
         <a 

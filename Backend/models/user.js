@@ -5,9 +5,12 @@ const userSchema = new mongoose.Schema({
     email : {type: String,required : true, unique : true},
     username : {type:String,required : true},
     password : {type: String},
-    role : {type : String, enum:['user','admin'], default:'user'},
+    role : {type : String, default:'student'},
     image : {type : String,default:null},
     googleId: { type: String },
+    createdCourses : [{type: mongoose.Schema.Types.ObjectId,ref :'Course'}],
+    boughtCourses : [{type: mongoose.Schema.Types.ObjectId,ref :'Course'}],
+    likedCourses : [{type: mongoose.Schema.Types.ObjectId,ref :'Course'}],
 },{timestamps:true});
 
 userSchema.pre('save',async function(next){

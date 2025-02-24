@@ -8,7 +8,9 @@ const UpgradeTeacher = () => {
 
   const handleUpgrade = async () => {
     try {
-      const response = await axios.post(`${backendUrl}/payment/updateProfile`, {}, { withCredentials: true });
+        const token = localStorage.getItem('token');
+      const response = await axios.post(`${backendUrl}/payment/updateProfile`, {
+        Authorization : token}, { withCredentials: true });
 
       if (response.data.token) {
         localStorage.setItem("token", response.data.token);

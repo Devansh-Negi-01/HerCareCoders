@@ -6,6 +6,9 @@ const passport = require("./config/passport");
 const session = require("express-session");
 const userRoutes = require('./routes/userRoutes');
 const authRoutes = require('./routes/authRoutes');
+const afterpaymentRoute = require('./routes/afterpaymentRoutes');
+const courseRoute = require('./routes/courseRoute');
+const middleware = require('./middleware');
 const cors = require('cors');
 const cloudinary = require('./utils/cloudinaryConfig');
 const cookieParser = require('cookie-parser');
@@ -27,6 +30,8 @@ mongoose.connect(process.env.MONGO_URI).then(() => console.log('MongoDB connecte
 app.use('/admin',adminRoutes);
 app.use('/user',userRoutes);
 app.use('/auth',authRoutes);
+app.use('/payment',middleware.check, afterpaymentRoute);
+app.use('/course',middleware.check,courseRoute);
 
 app.listen(port,()=>{
     console.log(`Server running on port ${port}`);

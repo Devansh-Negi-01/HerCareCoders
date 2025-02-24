@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { logout } from "../reduxStore/authSlice2";
+import { useSelector, useDispatch} from "react-redux";
+import { logout,login } from "../reduxStore/authSlice2";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
@@ -12,7 +12,25 @@ const Header = () => {
   const navigate = useNavigate();
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const [menuOpen, setMenuOpen] = useState(false);
-
+   useEffect(() => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get("token");
+    
+        if (token) {
+          localStorage.setItem("token", token);
+          const decodedToken = jwtDecode(token);
+          dispatch(login({ 
+            email: decodedToken.email, 
+            id: decodedToken.id, 
+            token, 
+            role: decodedToken.role, 
+            image: decodedToken.image,
+            username : decodedToken.username
+          }));
+    
+          navigate('/'); 
+        }
+      }, [dispatch,navigate]);
   const token = localStorage.getItem("token");
   let image = null;
   let username = null;

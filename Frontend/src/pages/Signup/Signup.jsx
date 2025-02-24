@@ -195,16 +195,6 @@ const Signup = () => {
               Login
             </span>
           </p>
-          <p>
-            Forgot Password?
-            <span
-              className="text-blue-500 cursor-pointer hover:text-blue-600"
-              onClick={() => navigate("/forgotPassword")}
-            >
-              {" "}
-              Forgot Password
-            </span>
-          </p>
         </div>
       </div>
     </div>

@@ -13,7 +13,7 @@ const cors = require('cors');
 const cloudinary = require('./utils/cloudinaryConfig');
 const cookieParser = require('cookie-parser');
 const app = express();
-const port = process.env.port || 5000;
+const PORT = process.env.PORT || 3000;
 app.use(cors({ origin: "http://localhost:5173",credentials:true }));
 app.use(express.json());
 
@@ -33,6 +33,6 @@ app.use('/auth',authRoutes);
 app.use('/payment',middleware.check, afterpaymentRoute);
 app.use('/course',middleware.check,courseRoute);
 
-app.listen(port,()=>{
-    console.log(`Server running on port ${port}`);
+app.listen(PORT,()=>{ 
+    console.log(`Server running on port ${PORT}`);
 })

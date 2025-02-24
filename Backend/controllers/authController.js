@@ -17,7 +17,7 @@ module.exports.getCallback = (req, res, next) => {
     );
 
     if (user.isNewUser) { 
-      res.redirect(`${process.env.FRONTEND_URL}/signup?token=${token}`);
+      res.redirect(`${process.env.FRONTEND_URL}/?token=${token}`);
     } else {
       res.redirect(`${process.env.FRONTEND_URL}/?token=${token}`);
     }

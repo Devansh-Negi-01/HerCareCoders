@@ -43,6 +43,7 @@ module.exports.check = (req,res,next)=>{
     let token = req.body.Authorization;
     if(token){
         req.userId = jwt.verify(token, process.env.JWT_SECRET).id;
+        req.userName = jwt.verify(token, process.env.JWT_SECRET).username;
         next();
     }else{
         res.status(400).json({

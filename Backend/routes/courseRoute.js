@@ -3,5 +3,7 @@ const router = express.Router();
 const courseController = require('../controllers/courseControllers');
 
 router.post('/createCourse', courseController.createCourse);
+router.post('/myCourses', courseController.myCourses);
+router.post('/editCourse',courseController.editCourse);
 
 module.exports = router;

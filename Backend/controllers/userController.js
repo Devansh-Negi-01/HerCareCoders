@@ -96,6 +96,31 @@ module.exports.login = async (req, res) => {
     }
 };
 
+module.exports.updateProfile = async (req,res)=>{
+    try{
+        const userId = req.userId;
+        const user = await User.findById(userId);
+        if (!user) {
+            return res.status(404).json({ error: "User not found" });
+        }
+        if (user.role !== 'student') {
+            return res.status(400).json({ error: "User is not a student" });
+        }
+        user.role = 'teacher';  
+        await user.save();
+        const token = jwt.sign({ id: user._id,email : user.email, role: user.role,image:user.image,username:user.username }, process.env.JWT_SECRET, { expiresIn: '1d' });
+        res.cookie('token', token, { httpOnly: true, secure: true, sameSite: 'none', maxAge: 24 * 60 * 60 * 1000 });
+        res.cookie('userId', user._id, { httpOnly: true, secure: true, sameSite: 'none', maxAge: 24 * 60 * 60 * 1000 });
+        res.cookie('email', user.email, { httpOnly: true, secure: true, sameSite: 'none', maxAge: 24 * 60 * 60 * 1000 });
+        res.cookie('role', user.role, { httpOnly: true, secure: true , sameSite: 'none', maxAge: 24 * 60 * 60 * 1000})
+        res.cookie('image',user.image, { httpOnly: true, secure: true,sameSite: 'none', maxAge: 24 * 60 * 60 * 1000})
+        res.json({ token });
+    }catch(e){
+        console.log("error in changing student to teacher "+e);
+        res.status(500).json({ error: "Error in changing student to teacher in", e});
+    }
+}
+
 module.exports.logout = (req, res) => {
     res.clearCookie('token');
     res.clearCookie('userId');

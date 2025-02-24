@@ -39,3 +39,14 @@ module.exports.userSchema = joi.object({
     password: joi.string().min(6).required(),
     username : joi.string()
 });
+module.exports.check = (req,res,next)=>{
+    let token = req.body.Authorization;
+    if(token){
+        req.userId = jwt.verify(token, process.env.JWT_SECRET).id;
+        next();
+    }else{
+        res.status(400).json({
+            msg : "No token "
+        })
+    }
+}

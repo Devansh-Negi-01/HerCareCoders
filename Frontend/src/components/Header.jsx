@@ -62,7 +62,6 @@ const backendUrl = import.meta.env.VITE_BACKEND_URL;
           <>
             <Link to="/" className="hover:text-[#44CFCB]">Home</Link>
             <Link to="/about" className="hover:text-[#44CFCB]">About Us</Link>
-            <Link to="/shipments" className="hover:text-[#44CFCB]">All Shipments</Link>
             <Link to="/dashboard" className="hover:text-[#44CFCB]">Dashboard</Link>
             {image && (
               <img 

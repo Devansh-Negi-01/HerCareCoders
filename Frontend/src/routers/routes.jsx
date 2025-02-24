@@ -17,6 +17,7 @@ import MyLearning from "../pages/Dashboard/MyLearning/MyLearning";
 import Certificates from "../pages/Dashboard/Certificates/Certificates";
 import AllCourses from "../pages/AllCourses/AllCourses";
 import CoursePage from "../pages/CoursePage/CoursePage";
+import LikedCourses from "../pages/Dashboard/LikedCourses/LikedCourses"
 // Protected Route Component
 const ProtectedRoute = ({ element }) => {
   let isAuthenticated = false;
@@ -51,7 +52,8 @@ const router = createBrowserRouter([
           { path: "/dashboard/editCourse/:id", element: <EditCourse /> },
           {path : "/dashboard/teacherInfo",element: <TeacherInfo/>},
           {path : "/dashboard/myLearning",element: <MyLearning/>},
-          {path : "/dashboard/certificates",element:<Certificates/>}
+          {path : "/dashboard/certificates",element:<Certificates/>},
+          {path : "/dashboard/likedCourses",element: <LikedCourses/>},
         ]
       },
     ]

@@ -9,4 +9,5 @@ router.post('/editCourse',middleware.check,courseController.editCourse);
 router.post('/:courseId',courseController.courseView);
 router.get('/allCourses',courseController.allCourses);
 
+
 module.exports = router;

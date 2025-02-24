@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { FaUser, FaBook, FaCertificate, FaChalkboardTeacher, FaPlusCircle, FaListAlt, FaSignOutAlt, FaBars, FaTimes } from "react-icons/fa";
-import {jwtDecode} from "jwt-decode";
-
+import {AiFillHeart} from "react-icons/ai"
+import {jwtDecode} from "jwt-decode"; 
+import axios from "axios";
 const DashboardNav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [role, setRole] = useState("");
@@ -26,12 +27,15 @@ const DashboardNav = () => {
     { path: "/dashboard/addCourse", icon: <FaPlusCircle />, label: "Add Course" },
     { path: "/dashboard/ownCourses", icon: <FaListAlt />, label: "My Courses" },
     { path: "/dashboard/myLearning", icon: <FaBook />, label: "My Learning" },
-    { path: "/dashboard/certificates", icon: <FaCertificate />, label: "Certificates" }
+    { path: "/dashboard/certificates", icon: <FaCertificate />, label: "Certificates" },
+    {path : "/dashboard/likedCourses", icon: <AiFillHeart />, label: "Liked Courses"}
   ] : [
     { path: "/dashboard/userInfo", icon: <FaUser />, label: "User Information" },
     { path: "/dashboard/myLearning", icon: <FaBook />, label: "My Learning" },
     { path: "/dashboard/certificates", icon: <FaCertificate />, label: "Certifications" },
+    {path :"/dashboard/likedCourses",icon : <AiFillHeart/>, label: "Liked Courses" },
     { path: "/dashboard/upgrade", icon: <FaChalkboardTeacher />, label: "Upgrade to Teacher" }
+
   ];
 
   return (
@@ -65,9 +69,12 @@ const DashboardNav = () => {
 
           <button
             className="flex items-center space-x-3 p-3 w-full text-left hover:bg-[#DBF4A7] text-black rounded-lg transition cursor-pointer"
-            onClick={() => {
+            onClick={async() => {
               localStorage.removeItem("token");
-              window.location.href = "/login";
+              await axios.post(`${import.meta.env.VITE_BACKEND_URL}/user/logout`);
+              window.location.href = "/";
+
+              // Navigate('/');
             }}
           >
             <FaSignOutAlt />

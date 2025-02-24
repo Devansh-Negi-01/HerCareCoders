@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
 
 const AllCourses = () => {
   const [courses, setCourses] = useState([]);
@@ -10,7 +11,19 @@ const AllCourses = () => {
 
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
+  let userId = null;
 
+  if (token) {
+    try {
+      const decoded = jwtDecode(token);
+      userId = decoded.id;
+    } catch (error) {
+      console.error("Invalid token:", error);
+      localStorage.removeItem("token");
+    }
+  }
+
+  // Fetch all courses and liked courses when component mounts
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/course/allCourses`)
@@ -19,6 +32,17 @@ const AllCourses = () => {
         setFilteredCourses(res.data.courses);
       })
       .catch((err) => console.error("Error fetching courses:", err));
+
+    if (token) {
+      axios
+        .post(`${import.meta.env.VITE_BACKEND_URL}/user/likedCourses`, {
+            Authorization: token 
+        })
+        .then((res) => {
+          setLikedCourses(new Set(res.data.likedCourses));
+        })
+        .catch((err) => console.error("Error fetching liked courses:", err));
+    }
   }, []);
 
   const handleSortChange = (e) => {
@@ -49,13 +73,13 @@ const AllCourses = () => {
       alert("Please log in to like courses.");
       return;
     }
-  
+
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/user/toggleLike`,
-        { courseId,Authorization:token }
+        { courseId,Authorization:token },
       );
-  
+
       if (response.data.success) {
         setLikedCourses((prevLikes) => {
           const newLikes = new Set(prevLikes);
@@ -71,13 +95,11 @@ const AllCourses = () => {
       console.error("Error updating likes:", error);
     }
   };
-  
 
   return (
     <div className="max-w-6xl mx-auto p-6">
       <h1 className="text-3xl font-semibold text-center mb-6">All Courses</h1>
 
-      {/* Sorting Options */}
       <div className="flex justify-end mb-4">
         <select
           onChange={handleSortChange}
@@ -92,7 +114,6 @@ const AllCourses = () => {
         </select>
       </div>
 
-      {/* Course List */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredCourses.map((course) => (
           <div
@@ -106,10 +127,9 @@ const AllCourses = () => {
             <p className="text-sm text-gray-700">Difficulty: {course.difficulty}</p>
             <p className="text-lg font-bold text-green-600">${course.price}</p>
 
-            {/* Like Button */}
             <button
               onClick={(e) => {
-                e.stopPropagation(); // Prevents triggering course navigation
+                e.stopPropagation(); 
                 toggleLike(course._id);
               }}
               className={`cursor-pointer mt-3 px-4 py-2 rounded-md ${

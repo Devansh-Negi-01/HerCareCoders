@@ -13,22 +13,20 @@ const Header = () => {
   const navigate = useNavigate();
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const [menuOpen, setMenuOpen] = useState(false);
-  let image = null;
-  const token = localStorage.getItem('token');
+  // let image = null;
+  // const token = localStorage.getItem('token');
   // console.log(token);
-  const decodedToken = jwtDecode(token);
-  let username = null;
+  // const decodedToken = jwtDecode(token);
   // console.log("decoded token image" , decodedToken.image)
-  if(token){
-    const decodedToken = jwtDecode(token);
-    image = decodedToken.image;
-    username = decodedToken.username;
-  }
+  // if(token){
+  //   const decodedToken = jwtDecode(token);
+  //   image = decodedToken.image;
+  // }
   // console.log("header userimage",image);
-// const image = useSelector(state=>state.auth.image);
+const image = useSelector(state=>state.auth.image);
 // console.log(image);
 const id = useSelector(state=>state.auth.userId);
-// const username = useSelector(state=>state.auth.username);
+const username = useSelector(state=>state.auth.username);
 // console.log("username ->",username);
 // console.log(id);
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
@@ -62,11 +60,19 @@ const backendUrl = import.meta.env.VITE_BACKEND_URL;
       <nav className={`absolute z-10 md:relative top-16 md:top-auto left-0 w-full md:w-auto bg-[#122C34] md:bg-transparent flex flex-col md:flex-row items-center md:space-x-4 space-y-4 md:space-y-0 p-4 md:p-0 ${menuOpen ? "block" : "hidden md:flex"}`}>
         {isAuthenticated ? (
           <>
-            <Link to="/home" className="hover:text-[#44CFCB]">Home</Link>
+            <Link to="/" className="hover:text-[#44CFCB]">Home</Link>
             <Link to="/about" className="hover:text-[#44CFCB]">About Us</Link>
+            <Link to="/shipments" className="hover:text-[#44CFCB]">All Shipments</Link>
             <Link to="/dashboard" className="hover:text-[#44CFCB]">Dashboard</Link>
+            {image && (
+              <img 
+                src={image} 
+                alt="User" 
+                className="h-10 w-10 rounded-full border-2 border-[#4EA5D9]"
+              />
+            )}
             <div
-              className="bg-[#2A4494] hover:bg-[#4EA5D9] text-white px-4 py-2 rounded cursor-pointer flex flex-column items-center gap-4"
+              className="bg-[#2A4494] hover:bg-[#4EA5D9] text-white px-4 py-2 rounded cursor-pointer flex flex-column items-center gap-8"
               onClick={handleLogout}
             >
               {image && (

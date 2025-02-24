@@ -32,26 +32,25 @@ const Home = () => {
   }, [dispatch]);
 
   return (
-    <div className="font-sans">
+    <div className="font-sans bg-[#F9F9ED] text-gray-900">
 
-      <section className="text-center py-16 px-4">
-        <h1 className="text-4xl font-bold">Start your learning now...</h1>
-        <p className="text-gray-600 max-w-2xl mx-auto mt-4">
+      <section className="text-center py-16 px-4 bg-[#D9DBF1]">
+        <h1 className="text-4xl font-bold text-[#7D84B2]">Start your learning now...</h1>
+        <p className="text-gray-700 max-w-2xl mx-auto mt-4">
           It’s never too late to learn something new. Unlock your potential at any age – all you need is the spark of motivation to begin. Embrace the journey of discovery and growth!
         </p>
-        <button className="mt-6 px-6 py-3 bg-black text-white rounded">Start Now</button>
+        <button className="mt-6 px-6 py-3 bg-[#7D84B2] text-white rounded hover:bg-[#8E9DCC]">Start Now</button>
       </section>
 
-<section className="w-full flex justify-center">
-  <img src="/homepage_images/hero-image.png" alt="Inspiring Learning" className="w-4/5 object-cover" />
-</section>
+      <section className="w-full flex justify-center">
+        <img src="/homepage_images/hero-image.png" alt="Inspiring Learning" className="w-4/5 object-cover" />
+      </section>
 
-<section className="py-12 px-8 flex flex-col md:flex-row items-center md:items-stretch gap-8">
-  <div className="flex-1">
-    <h2 className="text-2xl font-semibold mb-4">Explore our courses...</h2>
-
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-      {[
+      <section className="py-12 px-8 flex flex-col md:flex-row items-center md:items-stretch gap-8 bg-[#F9F9ED]">
+        <div className="flex-1">
+          <h2 className="text-2xl font-semibold mb-4 text-[#7D84B2]">Explore our courses...</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {[
         {
           title: "Technology and Data Science",
           desc: "Courses on programming, web development, software engineering, data analysis, machine learning, artificial intelligence, and big data.",
@@ -92,23 +91,22 @@ const Home = () => {
           <p className="text-gray-600 text-sm mt-1">{theme.desc}</p>
         </a>
       ))}
-    </div>
-  </div>
+          </div>
+        </div>
 
-  <div className="hidden md:block w-1/3">
-    <img 
-      src="/homepage_images/themes.png" 
-      alt="Themes" 
-      className="h-full w-full object-cover rounded-lg shadow-md"
-    />
-  </div>
-</section>
+        <div className="hidden md:block w-1/3">
+          <img 
+            src="/homepage_images/themes.png" 
+            alt="Themes" 
+            className="h-full w-full object-cover rounded-lg shadow-md"
+          />
+        </div>
+      </section>
 
-<section className="py-12 px-8">
-  <h2 className="text-3xl font-semibold text-center text-gray-900 tracking-wide">
+      <section className="py-12 px-8 bg-[#D9DBF1]">
+  <h2 className="text-3xl font-semibold text-center text-[#7D84B2] tracking-wide">
     Choose Your Learning Path
   </h2>
-
   <div className="flex md:grid md:grid-cols-3 gap-6 mt-6 md:overflow-visible overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth">
     {[
       { 
@@ -135,7 +133,7 @@ const Home = () => {
         href={course.link} 
         className="p-4 border rounded-lg shadow-sm bg-white w-[80vw] md:w-auto flex-shrink-0 md:flex-shrink snap-center hover:bg-gray-100 transition-transform transform hover:scale-105"
       >
-        <img src={course.img} alt={course.title} className="h-40 w-full object-cover rounded" />
+        <img src={course.img} alt={course.title} className="h-74 w-full object-cover rounded" />
         <h3 className="mt-4 font-bold text-lg text-gray-800">{course.title}</h3>
         <p className="text-gray-600 text-sm">{course.desc}</p>
       </a>
@@ -143,28 +141,26 @@ const Home = () => {
   </div>
 </section>
 
-
-<section className="py-12 px-8">
-<h2 className="text-3xl font-semibold text-center text-gray-900 tracking-wide">
-  Reviews from fellow learners
+<section className="py-12 px-8 bg-[#F9F9ED]">
+  <h2 className="text-3xl font-semibold text-center text-[#7D84B2] tracking-wide">
+    Reviews from fellow learners
   </h2>
-
   <div className="flex md:grid md:grid-cols-3 gap-6 mt-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide">
     {[
-      { 
-        text: "This online course selling platform is fantastic! It offers a wide range of high-quality courses, taught by industry experts. The user-friendly interface makes it easy to find and purchase courses. Highly recommended!", 
-        name: "John Doe", 
-        img: "/homepage_images/johnDoe.jpg" 
+      {
+        text: "This online course selling platform is fantastic! It offers a wide range of high-quality courses, taught by industry experts. The user-friendly interface makes it easy to find and purchase courses. Highly recommended!",
+        name: "John Doe",
+        img: "/homepage_images/johnDoe.jpg"
       },
-      { 
-        text: "This online course platform is a game-changer! It offers a diverse selection of courses led by top-notch instructors. The intuitive interface ensures a seamless browsing and purchasing experience. Highly recommended for learners at all levels!", 
-        name: "Jane Smith", 
-        img: "/homepage_images/janeSmith.jpg" 
+      {
+        text: "This online course platform is a game-changer! It offers a diverse selection of courses led by top-notch instructors. The intuitive interface ensures a seamless browsing and purchasing experience. Highly recommended for learners at all levels!",
+        name: "Jane Smith",
+        img: "/homepage_images/janeSmith.jpg"
       },
-      { 
-        text: "This online course selling platform stands out for its extensive selection of courses taught by industry leaders. Exceptional customer support and a wealth of resources make learning engaging and effective!", 
-        name: "Michael Brown", 
-        img: "/homepage_images/michaelBrown.jpg" 
+      {
+        text: "This online course selling platform stands out for its extensive selection of courses taught by industry leaders. Exceptional customer support and a wealth of resources make learning engaging and effective!",
+        name: "Michael Brown",
+        img: "/homepage_images/michaelBrown.jpg"
       }
     ].map((review, index) => (
       <div 
@@ -175,7 +171,7 @@ const Home = () => {
           <img 
             src={review.img} 
             alt={review.name} 
-            className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover shadow-lg border-2 border-white"
+            className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover object-top shadow-lg border-2 border-white"
           />
         </div>
         
@@ -188,49 +184,42 @@ const Home = () => {
   </div>
 </section>
 
-<footer className="bg-[#7D84B2] text-[#F9F9ED] py-8 px-10 md:py-12 md:px-16 mt-12">
-  <div className="flex flex-wrap justify-between items-start gap-6 md:gap-16">
-
-    <div className="flex flex-col space-y-4 md:space-y-6 md:pr-16">
-      <h2 className="text-2xl font-bold">NexLearn</h2>
-
-      <div className="flex space-x-4 mt-2">
-        <img src="/homepage_images/facebook.jpg" alt="Facebook" className="w-6 h-6" />
-        <img src="/homepage_images/linkedin.jpg" alt="LinkedIn" className="w-6 h-6" />
-        <img src="/homepage_images/youtube.jpg" alt="YouTube" className="w-6 h-6" />
-        <img src="/homepage_images/instagram.jpg" alt="Instagram" className="w-6 h-6" />
-      </div>
-    </div>
-
-    <div className="flex flex-wrap gap-12 md:space-y-6 md:pl-16">
-      <div>
-        <h3 className="font-semibold">Help</h3>
-        <ul className="mt-2 space-y-1 text-sm">
-          <li>About us</li>
-          <li>Privacy</li>
-          <li>Content</li>
-        </ul>
-      </div>
-
-      <div>
-        <h3 className="font-semibold">Themes</h3>
-        <ul className="mt-2 space-y-1 text-sm">
-          <li>Business</li>
-          <li>Technology</li>
-        </ul>
-      </div>
-
-      <div>
-        <h3 className="font-semibold">More</h3>
-        <ul className="mt-2 space-y-1 text-sm">
-          <li>Terms</li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
-</footer>
-
+      <footer className="bg-[#7D84B2] text-[#F9F9ED] py-8 px-10 md:py-12 md:px-16 mt-12">
+        <div className="flex flex-wrap justify-between items-start gap-6 md:gap-16">
+          <div className="flex flex-col space-y-4 md:space-y-6 md:pr-16">
+            <h2 className="text-2xl font-bold">NexLearn</h2>
+            <div className="flex space-x-4 mt-2">
+              <img src="/homepage_images/facebook.jpg" alt="Facebook" className="w-6 h-6" />
+              <img src="/homepage_images/linkedin.jpg" alt="LinkedIn" className="w-6 h-6" />
+              <img src="/homepage_images/youtube.jpg" alt="YouTube" className="w-6 h-6" />
+              <img src="/homepage_images/instagram.jpg" alt="Instagram" className="w-6 h-6" />
+            </div>
+          </div>
+          <div className="flex flex-wrap gap-12 md:space-y-6 md:pl-16">
+            <div>
+              <h3 className="font-semibold">Help</h3>
+              <ul className="mt-2 space-y-1 text-sm">
+                <li>About us</li>
+                <li>Privacy</li>
+                <li>Content</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold">Themes</h3>
+              <ul className="mt-2 space-y-1 text-sm">
+                <li>Business</li>
+                <li>Technology</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold">More</h3>
+              <ul className="mt-2 space-y-1 text-sm">
+                <li>Terms</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };

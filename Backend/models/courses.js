@@ -6,9 +6,11 @@ const courseSchema = new mongoose.Schema({
     category : {type:String,required : true},
     description : {type: String},
     price : {type: Number,required:true},
-    toalRevenue : {type : Number, default:0},
+    totalRevenue : {type : Number, default:0},
+    duration : {type :String, required:true},
+    difficulty : {type:String,required : true},
     owner : {type : mongoose.Schema.Types.ObjectId, ref :'User'},
-    reveiw: [{msg: { type: String },owner : {type : mongoose.Schema.Types.ObjectId, ref :'User'}}],
+    review: [{msg: { type: String },owner : {type : mongoose.Schema.Types.ObjectId, ref :'User'}}],
     buyers : [{type: mongoose.Schema.Types.ObjectId,ref :'User'}],
     data: [{
         title : {type:String, required:true},

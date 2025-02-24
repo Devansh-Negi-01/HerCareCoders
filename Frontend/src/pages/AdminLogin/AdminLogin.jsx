@@ -12,11 +12,12 @@ const AdminLogin = () => {
   const [password, setPassword] = useState('');
   const[error,setError] = useState('');
   const [showPassword,setshowPassword] = useState('false');
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const handleLogin = async(e) =>{
     e.preventDefault();
     setError("");
     try{
-      const res = await axios.post('http://localhost:3000/user/login',{email,password});
+      const res = await axios.post(`${backendUrl}/user/login`,{email,password});
       const token  = res.data.token;
       localStorage.setItem("token",token);
       

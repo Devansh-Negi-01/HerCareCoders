@@ -10,6 +10,11 @@ import UserInfo from "../pages/Dashboard/userInfo/UserInfo";
 import About from "../components/About";
 import AddCourse from "../pages/Dashboard/AddCourse/AddCourse";
 import UpgradeTeacher from "../pages/Dashboard/upgradeTeacher/UpgradeTeacher";
+import OwnerCourses from "../pages/Dashboard/OwnerCourses/OwnerCourses";
+import EditCourse from "../pages/Dashboard/EditCourse/EditCourse";
+import TeacherInfo from "../pages/Dashboard/TeacherInfo/TeacherInfo";
+import MyLearning from "../pages/Dashboard/MyLearning/MyLearning";
+import Certificates from "../pages/Dashboard/Certificates/Certificates";
 // Protected Route Component
 const ProtectedRoute = ({ element }) => {
   let isAuthenticated = false;
@@ -37,7 +42,12 @@ const router = createBrowserRouter([
           { path: "/dashboard/shipments", element: <div>All Shipments</div> },
           { path: "/dashboard/visitors", element: <div>Visitors</div> },
           {path : "/dashboard/addCourse", element : <AddCourse/>},
-          { path : '/dashboard/upgrade',element:<UpgradeTeacher/>}
+          { path : '/dashboard/upgrade',element:<UpgradeTeacher/>},
+          {path : '/dashboard/ownCourses',element: <OwnerCourses/>},
+          { path: "/dashboard/editCourse/:id", element: <EditCourse /> },
+          {path : "/dashboard/teacherInfo",element: <TeacherInfo/>},
+          {path : "/dashboard/myLearning",element: <MyLearning/>},
+          {path : "/dashboard/certificates",element:<Certificates/>}
         ]
       },
     ]

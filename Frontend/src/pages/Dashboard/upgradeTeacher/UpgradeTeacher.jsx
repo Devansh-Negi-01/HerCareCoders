@@ -4,7 +4,7 @@ import axios from "axios";
 
 const UpgradeTeacher = () => {
   const navigate = useNavigate();
-  const backendUrl = import.meta.env.VITE_BACKEND_URL; // Use environment variable for flexibility
+  const backendUrl = import.meta.env.VITE_BACKEND_URL; 
 
   const handleUpgrade = async () => {
     try {

@@ -19,7 +19,7 @@ app.use(express.json());
 
 app.use(cookieParser());
 app.use(session({ secret: process.env.JWT_SECRET, resave: false, saveUninitialized: false }));
-app.use(passport.initialize());
+app.use(passport.initialize()); 
 app.use(passport.session());
 dotenv.config();
 // console.log(cloudinary);

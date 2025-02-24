@@ -14,7 +14,7 @@ const Dashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className="flex h-screen  bg-[#666e88] text-white p-4">
+    <div className="flex min-h-screen  bg-[#666e88] text-white p-4">
       <DashboardNav />
       <div className="flex-1 p-6 overflow-auto">
         <Outlet />

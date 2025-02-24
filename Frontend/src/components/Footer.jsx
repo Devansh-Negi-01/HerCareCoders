@@ -22,32 +22,42 @@ const Footer = () => {
   }, [dispatch]);
 
   return (
-    <footer className="bg-[#122C34] text-[#4EA5D9] py-6 px-8 md:px-8">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start">
-
-        <div className="md:w-1/2 text-center md:text-left md:relative md:right-30">
-          <img src="/logo.jpg" alt="Logo" className="h-10 mx-auto md:mx-0" />
-          <p className="text-sm text-gray-400 mt-2 max-w-sm">
-            Track your shipments seamlessly with our real-time cargo tracking system.
-          </p>
-        </div>
-
-
-        <div className="md:w-1/2 text-center md:text-right mt-4 md:mt-0">
-          <p className="text-sm text-gray-400">Contact: shipease@gmail.com</p>
-          <div className="flex justify-center md:justify-end space-x-4 mt-2">
-            <a href="#" className="hover:text-[#44CFCB]">Facebook</a>
-            <a href="#" className="hover:text-[#44CFCB]">Twitter</a>
-            <a href="#" className="hover:text-[#44CFCB]">LinkedIn</a>
+    <footer className="bg-[#7D84B2] text-[#F9F9ED] py-8 px-10 md:py-12 md:px-16 mt-12">
+        <div className="flex flex-wrap justify-between items-start gap-6 md:gap-16">
+          <div className="flex flex-col space-y-4 md:space-y-6 md:pr-16">
+            <h2 className="text-2xl font-bold">NexLearn</h2>
+            <div className="flex space-x-4 mt-2">
+              <img src="/homepage_images/facebook.jpg" alt="Facebook" className="w-6 h-6" />
+              <img src="/homepage_images/linkedin.jpg" alt="LinkedIn" className="w-6 h-6" />
+              <img src="/homepage_images/youtube.jpg" alt="YouTube" className="w-6 h-6" />
+              <img src="/homepage_images/instagram.jpg" alt="Instagram" className="w-6 h-6" />
+            </div>
+          </div>
+          <div className="flex flex-wrap gap-12 md:space-y-6 md:pl-16">
+            <div>
+              <h3 className="font-semibold">Help</h3>
+              <ul className="mt-2 space-y-1 text-sm">
+                <li>About us</li>
+                <li>Privacy</li>
+                <li>Content</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold">Themes</h3>
+              <ul className="mt-2 space-y-1 text-sm">
+                <li>Business</li>
+                <li>Technology</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold">More</h3>
+              <ul className="mt-2 space-y-1 text-sm">
+                <li>Terms</li>
+              </ul>
+            </div>
           </div>
         </div>
-
-      </div>
-
-      <div className="border-t border-gray-600 mt-6 pt-4 text-sm text-gray-500 text-center">
-        © {new Date().getFullYear()} Cargo Tracker. All rights reserved.
-      </div>
-    </footer>
+      </footer>
   );
 };
 

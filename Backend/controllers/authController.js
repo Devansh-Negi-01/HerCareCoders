@@ -16,7 +16,11 @@ module.exports.getCallback = (req, res, next) => {
       { expiresIn: "1h" }
     );
 
-    res.redirect(`${process.env.FRONTEND_URL}/signup?token=${token}`);
+    if (user.isNewUser) { 
+      res.redirect(`${process.env.FRONTEND_URL}/signup?token=${token}`);
+    } else {
+      res.redirect(`${process.env.FRONTEND_URL}/?token=${token}`);
+    }
   })(req, res, next);
 };
 module.exports.getlogin = passport.authenticate("google", {

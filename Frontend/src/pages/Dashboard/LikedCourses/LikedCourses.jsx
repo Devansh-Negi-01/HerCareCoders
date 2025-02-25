@@ -63,14 +63,15 @@ const LikedCourses = () => {
           {likedCourses.map((course) => (
             <div
               key={course._id}
-              className="border p-4 rounded-lg shadow-md cursor-pointer transition duration-300 hover:shadow-lg"
+              className="border p-4 rounded-lg shadow-md cursor-pointer transition duration-300 hover:shadow-lg bg-[#D9DBF1]"
               onClick={() => navigate(`/course/${course._id}`)}
             >
-              <h2 className="text-xl font-semibold">{course.courseName}</h2>
-              <p className="text-gray-600">{course.description}</p>
-              <p className="text-sm font-medium text-blue-600">Category: {course.category}</p>
-              <p className="text-sm text-gray-700">Difficulty: {course.difficulty}</p>
-              <p className="text-lg font-bold text-green-600">${course.price}</p>
+              <h2 className="text-lg font-semibold text-[#2A4494]">{course.courseName}</h2>
+              <p className="text-[#4A4A4A]"><strong>Category:</strong> {course.category}</p>
+              <p className="text-[#4A4A4A]"><strong>Price:</strong> ₹{course.price}</p>
+              <p className="text-[#4A4A4A]"><strong>Duration:</strong> {course.duration}</p>
+              <p className="text-[#4A4A4A]"><strong>Difficulty:</strong> {course.difficulty}</p>
+              <p className="text-gray-700"><strong>Description:</strong> {course.description}</p>
             </div>
           ))}
         </div>

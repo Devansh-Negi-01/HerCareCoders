@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
+import image from '/project.jpg'
 
 const AllCourses = () => {
   const [courses, setCourses] = useState([]);
@@ -48,19 +49,20 @@ const AllCourses = () => {
   const handleSortChange = (e) => {
     const value = e.target.value;
     setSortBy(value);
-
+  
     let sortedCourses = [...courses];
-
+  
     if (value === "priceAsc") {
       sortedCourses.sort((a, b) => a.price - b.price);
     } else if (value === "priceDesc") {
       sortedCourses.sort((a, b) => b.price - a.price);
     } else if (value === "difficulty") {
-      sortedCourses.sort((a, b) => a.difficulty.localeCompare(b.difficulty));
+      const difficultyOrder = { Beginner: 1, Intermediate: 2, Advanced: 3 };
+      sortedCourses.sort((a, b) => difficultyOrder[a.difficulty] - difficultyOrder[b.difficulty]);
     } else if (value === "category") {
       sortedCourses.sort((a, b) => a.category.localeCompare(b.category));
     }
-
+  
     setFilteredCourses(sortedCourses);
   };
 
@@ -121,6 +123,7 @@ const AllCourses = () => {
             className="border p-4 rounded-lg shadow-md cursor-pointer transition duration-300 hover:shadow-lg"
             onClick={() => handleCourseClick(course._id)}
           >
+            <img src={image} alt="" />
             <h2 className="text-xl font-semibold">{course.courseName}</h2>
             <p className="text-gray-600">{course.description}</p>
             <p className="text-sm font-medium text-blue-600">Category: {course.category}</p>

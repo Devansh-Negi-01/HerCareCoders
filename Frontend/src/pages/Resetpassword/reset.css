@@ -1,17 +1,15 @@
-/* ResetPassword.css */
 
-/* Full screen container */
 .reset-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #122C34;
+    background-color: #7D84B2;
   }
   
-  /* Card style for the reset form */
+
   .reset-card {
-    background-color: #224870;
+    background-color: #D9DBF1;
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
@@ -20,27 +18,27 @@
     animation: fade-in 1s ease;
   }
   
-  /* Title */
+
   .reset-title {
     font-size: 1.8rem;
     font-weight: bold;
-    color: #fff;
+    color: #7D84B2;
     margin-bottom: 1.5rem;
   }
   
-  /* Form group for inputs */
+
   .form-group {
     margin-bottom: 1rem;
   }
   
-  /* Input fields */
+
   .input-field {
     width: 100%;
     padding: 12px;
     border-radius: 5px;
     border: 1px solid #ddd;
     background-color: #1F2A36;
-    color: #fff;
+    color: #ddd;
     font-size: 1rem;
   }
   
@@ -48,14 +46,14 @@
     border-color: #f44336;
   }
   
-  /* Error message styling */
+
   .error-message {
     color: #f44336;
     font-size: 0.875rem;
     margin-top: 0.5rem;
   }
   
-  /* Button for password visibility toggle */
+
   .password-toggle-btn {
     position: absolute;
     right: 10px;
@@ -65,13 +63,18 @@
     color: #ddd;
     cursor: pointer;
   }
-  
-  /* Reset button styling */
+.send_otp_btn{
+  background-color: #DBF4A7;
+  border-radius: 8px;
+  padding : 4px;
+  margin-top: 4px;
+  cursor: pointer;
+}
   .reset-button {
     width: 100%;
     padding: 12px;
-    background-color: #4EA5D9;
-    color: white;
+    background-color: #DBF4A7;
+    color: #7D84B2;
     font-size: 1.2rem;
     border: none;
     border-radius: 5px;
@@ -80,10 +83,10 @@
   }
   
   .reset-button:hover {
-    background-color: #44CFCB;
+    background-color: #b1c290;
   }
   
-  /* Google login button */
+
   .google-login-container {
     margin-top: 1rem;
   }
@@ -91,8 +94,8 @@
   .google-login-btn {
     width: 100%;
     padding: 12px;
-    background-color: #4c64ac;
-    color: white;
+    background-color: #DBF4A7;
+    color: #7D84B2;
     font-size: 1.2rem;
     border-radius: 5px;
     cursor: pointer;
@@ -109,14 +112,13 @@
   .google-icon {
     font-size: 1.5rem;
   }
-  
-  /* Redirect links */
+
   .redirect-links {
     margin-top: 1.5rem;
   }
   
   .redirect-text {
-    color: #ccc;
+    color: #7D84B2;
     font-size: 0.875rem;
   }
   
@@ -130,7 +132,7 @@
     color: #3a8dff;
   }
   
-  /* Fade-in animation */
+
   @keyframes fade-in {
     from {
       opacity: 0;

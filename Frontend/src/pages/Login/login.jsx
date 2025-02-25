@@ -60,8 +60,8 @@ const Login = () => {
       window.location.href = `${backendUrl}/auth/google`;
     };
   return (
-    <div className="flex justify-center items-center h-screen bg-[#122C34]">
-      <div className="bg-[#224870] p-8 rounded-lg shadow-lg w-96 text-white animate-fade-in">
+    <div className="flex justify-center items-center h-screen bg-[#7D84B2]">
+      <div className="bg-[#D9DBF1] p-8 rounded-lg shadow-lg w-96 text-[#7D84B2] animate-fade-in">
         <h2 className="text-2xl font-bold text-center mb-4">Login</h2>
         <form onSubmit={handleLogin}>
           <div className="mb-4">
@@ -70,7 +70,7 @@ const Login = () => {
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className={`w-full p-2 rounded border ${error ? "border-red-500" : "border-gray-300"}`}
+              className={`w-full p-2 rounded-lg border text-black focus:outline-none focus:ring-2 bg-gray-100 ${error ? "border-red-500" : "border-gray-300"}`}
               required
             />
           </div>
@@ -80,7 +80,7 @@ const Login = () => {
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className={`w-full p-2 rounded border ${error ? "border-red-500" : "border-gray-300"}`}
+              className={`w-full p-2 rounded-lg border text-black focus:outline-none focus:ring-2 bg-gray-100 ${error ? "border-red-500" : "border-gray-300"}`}
               required
             />
             <button
@@ -92,23 +92,23 @@ const Login = () => {
             </button>
           </div>
           {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
-          <button onClick={handleLogin} type="submit" className="w-full bg-[#4EA5D9] hover:bg-[#44CFCB] text-white p-2 rounded cursor-pointer">
+          <button onClick={handleLogin} type="submit" className="cursor-pointer w-full bg-[#DBF4A7] hover:bg-[#b1c290] text-[#7D84B2] p-3 rounded-lg font-semibold transition">
             Login
           </button>
         </form>
         <div className="mt-4">
           <button
             onClick={handleGoogleLogin}
-            className="flex items-center justify-center w-full bg-[#4c64ac] hover:bg-[#343c52] text-white p-2 rounded cursor-pointer"
+            className="flex items-center justify-center w-full bg-[#DBF4A7] hover:bg-[#b1c290] text-[#7D84B2]  p-2 rounded cursor-pointer"
           >
             <FaGoogle className="mr-2" /> Sign in with Google
           </button>
         </div>
           <div>
-            <p className="text-center text-gray-400 mt-4">Don't have an account? <span className="text-blue-500 cursor-pointer hover:text-blue-600" onClick={()=>Navigate('/signup')}>Sign Up</span></p>
+            <p className="text-center text-[#7D84B2] mt-4">Don't have an account? <span className="text-blue-500 cursor-pointer hover:text-blue-600" onClick={()=>Navigate('/signup')}>Sign Up</span></p>
           </div>
           <div>
-            <p className="text-center text-gray-400 mt-4">Forget Password? <span className="text-blue-500 cursor-pointer hover:text-blue-600" onClick={()=>Navigate('/resetpassword')}>Reset password</span></p>
+            <p className="text-center text-[#7D84B2] mt-4">Forget Password? <span className="text-blue-500 cursor-pointer hover:text-blue-600" onClick={()=>Navigate('/resetpassword')}>Reset password</span></p>
           </div>
       </div>
     </div>

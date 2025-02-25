@@ -1,5 +1,5 @@
 @keyframes textSlide {
-    0% { transform: translateY(0); }
+    0% { transform: translateY(10%); }
     33% { transform: translateY(-40%); }
     66% { transform: translateY(-80%); }
     100% { transform: translateY(-10%); }

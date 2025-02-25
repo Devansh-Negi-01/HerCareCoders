@@ -17,25 +17,23 @@ const ResetPassword = () => {
 
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
-  // Function to send OTP via email
   const handleSendOtp = async () => {
     try {
       const generatedOtp = Math.floor(100000 + Math.random() * 900000); // Generate a 6-digit OTP
 
       const templateParams = {
-        to_email: email, // Set the email inputted by the user
+        to_email: email, 
         otp: generatedOtp,
       };
 
-      // Send OTP via EmailJS
       const result = await emailjs.send(
-        'service_2nppr4i', // Your EmailJS Service ID
-        'template_igj4wna', // Your EmailJS Template ID
+        'service_2nppr4i', 
+        'template_igj4wna', 
         templateParams,
-        'rWwm79W-1H0cKHJ1t' // Your EmailJS User ID
+        'rWwm79W-1H0cKHJ1t' 
       );
 
-      setOtp(generatedOtp); // Store generated OTP in state
+      setOtp(generatedOtp); 
       setMessage('OTP sent to your email!');
       console.log(result.text); 
     } catch (err) {
@@ -44,11 +42,11 @@ const ResetPassword = () => {
     }
   };
 
-  // Handle password reset after OTP verification
+
   const handleResetPassword = async (e) => {
     e.preventDefault();
     if (enteredOtp == otp) {
-      //api call 
+
       const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/user/resetpassword`,{
         email : email,
         password : password
@@ -64,8 +62,8 @@ const ResetPassword = () => {
   };
 
   return (
-    <div className="reset-container">
-      <div className="reset-card">
+    <div className="reset-container ">
+      <div className="reset-card text-[#7D84B2]">
         <h2 className="reset-title">Reset Password</h2>
         <form onSubmit={handleResetPassword}>
           <div className="form-group">
@@ -76,7 +74,7 @@ const ResetPassword = () => {
               onChange={(e) => setEmail(e.target.value)}
               className={`input-field ${error ? "error" : ""}`}
             />
-            <button type="button" onClick={handleSendOtp} className="send-otp-btn">Send OTP</button>
+            <button type="button" onClick={handleSendOtp} className="send_otp_btn">Send OTP</button>
           </div>
 
           <div className="form-group">

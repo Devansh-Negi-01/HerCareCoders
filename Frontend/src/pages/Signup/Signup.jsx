@@ -89,8 +89,8 @@ const Signup = () => {
     window.location.href = `${backendUrl}/auth/google`;
   };
   return (
-    <div className="flex justify-center items-center min-h-screen bg-[#122C34]">
-      <div className="bg-[#224870] p-8 rounded-xl shadow-xl w-96 text-white animate-fade-in">
+    <div className="flex justify-center items-center min-h-screen bg-[#7D84B2]">
+      <div className="bg-[#D9DBF1] p-8 rounded-xl shadow-xl w-96 text-[#7D84B2] animate-fade-in">
         <h2 className="text-3xl font-bold text-center mb-6">Signup</h2>
         <form onSubmit={handleSignup} encType="multipart/form-data">
           <div className="mb-4">
@@ -134,7 +134,8 @@ const Signup = () => {
 
           {/* Profile Picture Upload */}
           <div className="mb-6">
-            <label className="block text-lg font-medium text-gray-300 mb-2 text-center">
+          <p className="block text-lg font-medium text-[#7D84B2] mb-2 text-center">image must be less than 2mb</p>
+            <label className="block text-lg font-medium text-[#7D84B2] mb-2 text-center">
               Profile Picture
             </label>
             <div className="flex flex-col items-center">
@@ -149,9 +150,11 @@ const Signup = () => {
                     className="w-full h-full rounded-full object-cover"
                   />
                 ) : (
-                  <div className="flex flex-col items-center text-gray-300">
+                  <div className="flex flex-col items-center text-[#7D84B2]">
+                    <div></div>
                     <FaCloudUploadAlt className="text-4xl mb-2" />
                     <span className="text-sm">Upload Image</span>
+                    
                   </div>
                 )}
               </label>
@@ -171,7 +174,7 @@ const Signup = () => {
 
           <button
             type="submit"
-            className="cursor-pointer w-full bg-[#4EA5D9] hover:bg-[#44CFCB] text-white p-3 rounded-lg font-semibold transition"
+            className="cursor-pointer w-full bg-[#DBF4A7] hover:bg-[#b1c290] text-[#7D84B2] p-3 rounded-lg font-semibold transition"
           >
             Signup
           </button>
@@ -179,19 +182,18 @@ const Signup = () => {
         <div className="mt-4">
           <button
             onClick={handleGoogleLogin}
-            className="flex items-center justify-center w-full bg-[#6ba6e6] hover:bg-[#4e6b89] text-white p-2 rounded cursor-pointer"
+            className="flex items-center justify-center w-full bg-[#DBF4A7] hover:bg-[#b1c290] text-[#7D84B2]  p-2 rounded cursor-pointer"
           >
             <FaGoogle className="mr-2" /> Sign in with Google
           </button>
         </div>
-        <div className="text-center text-gray-400 mt-4">
+        <div className="text-center text-[#7D84B2] mt-4">
           <p>
             Already have an account?
             <span
               className="cursor-pointer text-blue-500 hover:text-blue-600"
               onClick={() => navigate("/Login")}
             >
-              {" "}
               Login
             </span>
           </p>

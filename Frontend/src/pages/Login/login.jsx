@@ -107,7 +107,9 @@ const Login = () => {
           <div>
             <p className="text-center text-gray-400 mt-4">Don't have an account? <span className="text-blue-500 cursor-pointer hover:text-blue-600" onClick={()=>Navigate('/signup')}>Sign Up</span></p>
           </div>
-        
+          <div>
+            <p className="text-center text-gray-400 mt-4">Forget Password? <span className="text-blue-500 cursor-pointer hover:text-blue-600" onClick={()=>Navigate('/resetpassword')}>Reset password</span></p>
+          </div>
       </div>
     </div>
   )

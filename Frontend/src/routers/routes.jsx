@@ -17,6 +17,7 @@ import MyLearning from "../pages/Dashboard/MyLearning/MyLearning";
 import Certificates from "../pages/Dashboard/Certificates/Certificates";
 import AllCourses from "../pages/AllCourses/AllCourses";
 import CoursePage from "../pages/CoursePage/CoursePage";
+import Reset from "../pages/Resetpassword/reset";
 import LikedCourses from "../pages/Dashboard/LikedCourses/LikedCourses"
 // Protected Route Component
 const ProtectedRoute = ({ element }) => {
@@ -53,14 +54,15 @@ const router = createBrowserRouter([
           {path : "/dashboard/teacherInfo",element: <TeacherInfo/>},
           {path : "/dashboard/myLearning",element: <MyLearning/>},
           {path : "/dashboard/certificates",element:<Certificates/>},
-          {path : "/dashboard/likedCourses",element: <LikedCourses/>},
+          {path : "/dashboard/likedCourses",element: <LikedCourses/>}
         ]
       },
     ]
   },
   { path: "/adminLogin", element: <AdminLogin /> },
   { path: "/login", element: <Login /> },
-  { path: "/signup", element: <SignUp /> }
+  { path: "/signup", element: <SignUp /> },
+  {path : "/resetpassword",element: <Reset/>}
 ]);
 
 export default router;

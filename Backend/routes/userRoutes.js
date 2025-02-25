@@ -12,4 +12,5 @@ Router.post('/toggleLike',middleware.check,userController.toggleLike);
 Router.post('/likedCourses',middleware.check,userController.likedCourses);
 // Router.post('/getLikedCourse',middleware.check,userController.getLikedCourse);
 Router.post('/getLikedCourse',userController.getLikedCourse);
+Router.post('/resetpassword',userController.reset);
 module.exports = Router;

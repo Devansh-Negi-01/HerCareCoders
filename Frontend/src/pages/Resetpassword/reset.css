@@ -1,0 +1,142 @@
+/* ResetPassword.css */
+
+/* Full screen container */
+.reset-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #122C34;
+  }
+  
+  /* Card style for the reset form */
+  .reset-card {
+    background-color: #224870;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    width: 380px;
+    text-align: center;
+    animation: fade-in 1s ease;
+  }
+  
+  /* Title */
+  .reset-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Form group for inputs */
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  /* Input fields */
+  .input-field {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #1F2A36;
+    color: #fff;
+    font-size: 1rem;
+  }
+  
+  .input-field.error {
+    border-color: #f44336;
+  }
+  
+  /* Error message styling */
+  .error-message {
+    color: #f44336;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+  }
+  
+  /* Button for password visibility toggle */
+  .password-toggle-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: none;
+    border: none;
+    color: #ddd;
+    cursor: pointer;
+  }
+  
+  /* Reset button styling */
+  .reset-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4EA5D9;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .reset-button:hover {
+    background-color: #44CFCB;
+  }
+  
+  /* Google login button */
+  .google-login-container {
+    margin-top: 1rem;
+  }
+  
+  .google-login-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #4c64ac;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .google-login-btn:hover {
+    background-color: #343c52;
+  }
+  
+  .google-icon {
+    font-size: 1.5rem;
+  }
+  
+  /* Redirect links */
+  .redirect-links {
+    margin-top: 1.5rem;
+  }
+  
+  .redirect-text {
+    color: #ccc;
+    font-size: 0.875rem;
+  }
+  
+  .redirect-link {
+    color: #1E90FF;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .redirect-link:hover {
+    color: #3a8dff;
+  }
+  
+  /* Fade-in animation */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  

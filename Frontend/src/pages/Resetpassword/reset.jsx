@@ -49,7 +49,7 @@ const ResetPassword = () => {
     e.preventDefault();
     if (enteredOtp == otp) {
       //api call 
-      const response = await axios.post('http://localhost:3000/user/resetpassword',{
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/user/resetpassword`,{
         email : email,
         password : password
       })

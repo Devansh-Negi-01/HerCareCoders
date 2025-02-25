@@ -21,7 +21,11 @@ module.exports.signup = async (req, res) => {
         return res.status(400).json({ error: error.details[0].message });
 
       const { email, password, username } = req.body;
-
+      if(password.length < 6){
+        return res.status(400).json({ error: "length less than 6" });
+      }else if(password.includes(' ')){
+        return res.status(400).json({ error: "Contains empty spaces " });
+      }
       const existingUser = await User.findOne({ email });
       if (existingUser)
         return res.status(400).json({ error: "Email already registered" });

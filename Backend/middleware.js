@@ -52,3 +52,24 @@ module.exports.check = (req,res,next)=>{
         })
     }
 }
+module.exports.password = (req,res,next)=>{
+    let pass = req.body.password;
+    console.log(pass);
+    if(!pass){
+        res.status(400).json({
+            error : "Error while adding password its empty"
+        })
+    }
+    if(pass.length <= 5){
+        res.status(400).json({
+            error : "Error while adding password its short"
+        })
+    }
+    let index = pass.indexOf(' ');
+    if(index!=-1){
+        res.status(400).json({
+            error : "Error while adding password it contains space"
+        })
+    }
+    next();
+}

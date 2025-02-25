@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { login } from "../../reduxStore/authSlice2";
 import { jwtDecode } from "jwt-decode";
+import Newsletter from "../../components/Newsletter";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -178,6 +179,7 @@ const Home = () => {
     ))}
   </div>
 </section>
+    <Newsletter/>
     </div>
   );
 };

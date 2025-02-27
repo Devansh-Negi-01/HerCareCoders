@@ -128,7 +128,7 @@ const AllCourses = () => {
             <p className="text-gray-600">{course.description}</p>
             <p className="text-sm font-medium text-blue-600">Category: {course.category}</p>
             <p className="text-sm text-gray-700">Difficulty: {course.difficulty}</p>
-            <p className="text-lg font-bold text-green-600">${course.price}</p>
+            <p className="text-lg font-bold text-green-600">₹{course.price}</p>
 
             <button
               onClick={(e) => {

@@ -12,11 +12,13 @@ const middleware = require('./middleware');
 const cors = require('cors');
 const cloudinary = require('./utils/cloudinaryConfig');
 const cookieParser = require('cookie-parser');
+const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 3000;
 dotenv.config();
 app.use(cors({ origin: process.env.FRONTEND_URL ,credentials:true }));
 app.use(express.json());
+app.use(express.static(path.join(__dirname, "build")));
 
 app.use(cookieParser());
 app.use(session({ secret: process.env.JWT_SECRET, resave: false, saveUninitialized: false }));
@@ -33,6 +35,10 @@ app.use('/user',userRoutes);
 app.use('/auth',authRoutes);
 app.use('/payment',middleware.check, afterpaymentRoute);
 app.use('/course',courseRoute);
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
+
 
 app.listen(PORT,()=>{ 
     console.log(`Server running on port ${PORT}`);
